@@ -50,8 +50,8 @@ const ProductDetails = ({
     });
 
   return (
-    <div className="">
-      <div className="flex items-center gap-2  px-5">
+    <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white">
+      <div className="flex items-center gap-2 px-5 pt-5">
         <div className="relative h-6 w-6 ">
           <Image
             src={product.restaurant.imageUrl}

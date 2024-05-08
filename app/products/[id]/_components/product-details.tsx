@@ -17,6 +17,7 @@ import {
 import { useState } from "react";
 import ProducList from "@/app/_components/Product-list";
 import { Card } from "@/app/_components/ui/card";
+import DeliveryInfo from "@/app/_components/delivery-info";
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{
@@ -132,6 +133,10 @@ const ProductDetails = ({
             </p>
           </div>
         </Card>
+
+        <div className="px-5">
+          <DeliveryInfo restaurant={product.restaurant} />
+        </div>
 
         <div className="mt-6 space-y-3">
           <h3 className="font-semibold">Sobre</h3>

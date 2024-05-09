@@ -2,7 +2,6 @@ import { db } from "@/app/_lib/prisma";
 import { notFound } from "next/navigation";
 import RestaurantImage from "./_components/restaurant-image";
 import { StarIcon } from "lucide-react";
-
 import Image from "next/image";
 import DeliveryInfo from "@/app/_components/delivery-info";
 import ProductList from "@/app/_components/Product-list";
@@ -18,12 +17,21 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
     where: {
       id,
     },
-
     include: {
       categories: {
         include: {
-          //ajustar erro
-          products: true,
+          Product: {
+            where: {
+              restaurantId: id,
+            },
+            include: {
+              restaurant: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          },
         },
       },
       products: {

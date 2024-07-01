@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 
 const PromoBanner = (props: ImageProps) => {
   return (
@@ -9,6 +9,7 @@ const PromoBanner = (props: ImageProps) => {
       sizes="100vw"
       quality={100}
       {...props}
+      alt="k"
     />
   );
 };
